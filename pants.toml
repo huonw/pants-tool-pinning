@@ -3,11 +3,18 @@ pants_version = "2.12.0"
 
 backend_packages = [
   "pants.backend.python",
+  "pants.backend.python.typecheck.mypy",
 ]
 
 [python]
 interpreter_constraints = ["CPython==3.9.*"]
 enable_resolves = true
+
+[mypy]
+lockfile = "3rdparty/python/mypy.lock"
+source_plugins = [
+  "//:pydantic",
+]
 
 [anonymous-telemetry]
 enabled = false
